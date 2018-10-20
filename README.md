@@ -98,7 +98,7 @@ All the code is commented so you will know what it does on every point.
 
 ## HTML
 
-I have used HTML5 because, well, it helps me in the inputs (on the forms) because it includes something very good, the required property. The required property will test if the input of an input it's ok or not and it will let do it by the browser, so you can relax and it's no need for more logic. And I have used the "new types" for the inputs that helps you transform your keyboard and let the user only put the proper on it. So, the use of the "form" and the required is a great way to pass this responsibility to the web client (but I test on the storage too, you know...).
+I have used HTML5 because, well, it helps me in the inputs (on the forms) because it includes something very good, the required property. The required property will test if the input of an input it's ok or not and it will let do it by the browser, so you can relax and it's no need for more logic. And I have used the "new types" for the inputs that helps you transform your keyboard and let the user only put the proper on it. So, the use of the "form" tag and the required is a great way to pass this responsibility to the web client (but I test on the storage too, you know...).
 
 I know if an old browser runs it, it will be a problem (yes, a problem) because you must use JS for testing it (and PHP too, of couse, always do double check!) but, as I say, it helps you to save time and on the test, you don't say that it must be compatible with old browsers (because Angular will fail too).
 
