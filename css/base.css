@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Open+Sans");
+body {
+  background-color: #a79b94;
+  margin: 1.5em;
+  font-family: "Open Sans", sans-serif; }
+
+.margin2em {
+  margin: 2em 0; }
+
+h1 {
+  font-size: 2em;
+  font-family: "Open Sans", sans-serif;
+  color: #590420;
+  text-transform: uppercase; }
+  h1 span {
+    border: 1px solid #590420;
+    padding: 0.5em 1.5em; }
+
+input {
+  font-family: "Open Sans", sans-serif;
+  color: #000f24;
+  border: 1px solid #000f24;
+  padding: 0.2em 0.7em;
+  margin: 0 0.5em; }
+
+.click {
+  cursor: pointer;
+  color: #000f24; }
+  .click:hover {
+    text-decoration: underline; }
+
+.pagination {
+  text-align: center; }
+  .pagination li {
+    margin: 0 0.1em;
+    padding: 0.2em 1em;
+    border: 1px solid #000f24;
+    background-color: white; }
+    .pagination li:hover {
+      background-color: #000f24; }
+      .pagination li:hover a {
+        color: white; }
+    .pagination li a {
+      color: #000f24; }
+      .pagination li a:hover {
+        text-decoration: none; }
+
+label {
+  font-family: "Open Sans", sans-serif;
+  color: #000f24;
+  border: 1px solid #000f24;
+  padding: 0.2em 0.7em;
+  text-transform: uppercase; }
+
+.search {
+  width: 300px; }

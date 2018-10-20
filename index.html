@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="eggplantCodingTest">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Eggplant coding test</title>
+    <!-- AngularJS from Google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <!-- Bootstrap base from CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Rest of the styles -->
+    <link href="./css/base.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row margin2em">
+        <div class="col-md-12 text-center">
+          <h1><span>Eggplant Coding Test</span></h1>
+        </div>
+      </div>
+      <div class="row" ng-controller="formControler">
+        <div class="col-md-12 text-center">
+          <form>
+            <input type="text" ng-model="name" name="name" maxlength="250" required placeholder="name">
+            <input type="date" ng-model="dateBird" name="dateBird" required>
+            <input type="number" ng-model="numberChildren" name="numberChildren" min="0" step="1" required value="0">
+            <input type="email" ng-model="email" name="email" maxlength="250" required placeholder="foo@foo.com">
+            <button class="btn btn-light" ng-click="addItem(name, dateBird, numberChildren, email)" role="link">Add it!</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row" ng-controller="tableContoler">
+        <div class="col-md-12 text-center" style="margin: 2em 0;">
+          <table width="100%" class="table">
+            <thead>
+              <tr>
+                <th><span class="click" ng-click="sortBy('name')">Name</span></th>
+                <th>Date of Bird</th>
+                <th><span class="click" ng-click="sortBy('email')">Email</span></th>
+                <th>Number of children</th>
+            </thead>
+            <tbody ng-if="items">
+              <!--<tr ng-repeat="(key, item) in items | orderBy:propertyName:reverse | filter: {name: searchText, email: searchText}">-->
+              <tr dir-paginate="item in items | orderBy:propertyName:reverse | filter: {name: searchText, email: searchText} | itemsPerPage: 15">
+                <td>{{ item.name }}</td>
+                <td>{{ item.dateBird }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.numberChildren }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <dir-pagination-controls
+             max-size="15"
+             direction-links="true"
+             boundary-links="false" >
+          </dir-pagination-controls>
+        </div>
+        <div class="col-md-12 text-right">
+          <p>Sorting by <strong>{{ propertyName }}</strong> and <strong>{{ reverse ? 'descending (DESC)' : 'ascending (ASC)'}}</strong>.</p>
+        </div>
+        <div class="col-md-12 text-center">
+          <label for="search">Search/Filter</label>
+          <input type="text" class="search" ng-model="searchText" name="search">
+        </div>
+      </div>
+    </div>
+    <script>
+    // Initialice the app
+    var eggplantCoding = angular.module('eggplantCodingTest', ['angularUtils.directives.dirPagination'])
+    .config(['$sceDelegateProvider', function($sceDelegateProvider) {
+      // We must whitelist the JSONP endpoint that we are using to show that we trust it
+      $sceDelegateProvider.resourceUrlWhitelist([
+        'self',
+        'http://localhost/**'
+      ]);
+    }]);
+    </script>
+    <!-- The storage -->
+    <script src="./js/storage/storageFactory.js"></script>
+    <!-- The Components -->
+    <script src="./js/components/formComponent.js"></script>
+    <script src="./js/components/tableComponent.js"></script>
+    <!-- Third party -->
+    <script src="./js/thirdparty/dir-pagination.js"></script>
+  </body>
+</html>

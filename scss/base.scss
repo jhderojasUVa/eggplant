@@ -1,0 +1,88 @@
+// Base stylesheet
+
+// Common colors
+$red: #25000a;
+$wine: #590420;
+$blue: #000f24;
+$nearBlack: #00009d;
+$grey: #756860;
+
+// Fonts from Google
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans');
+$openSans: 'Open Sans', sans-serif;
+$lato: 'Open Sans', sans-serif;
+
+// Generic
+body {
+  background-color: lighten($grey, 20);
+  margin: 1.5em;
+  font-family: $lato;
+}
+
+.margin2em {
+  margin: 2em 0;
+}
+
+// Header
+h1 {
+  font-size: 2em;
+  font-family: $openSans;
+  color: $wine;
+  text-transform: uppercase;
+  span {
+    border: 1px solid $wine;
+    padding: 0.5em 1.5em;
+  }
+}
+
+// Table
+input {
+  font-family: $openSans;
+  color: $blue;
+  border: 1px solid $blue;
+  padding: 0.2em 0.7em;
+  margin: 0 0.5em;
+}
+.click {
+  cursor: pointer;
+  color: $blue;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Pagination
+.pagination {
+  text-align: center;
+  li {
+    margin: 0 0.1em;
+    padding: 0.2em 1em;
+    border: 1px solid $blue;
+    background-color: white;
+    &:hover {
+      background-color: $blue;
+      a {
+        color: white;
+      }
+    }
+    a {
+      color: $blue;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Search
+label {
+  font-family: $openSans;
+  color: $blue;
+  border: 1px solid $blue;
+  padding: 0.2em 0.7em;
+  text-transform: uppercase;
+}
+
+.search {
+  width: 300px;
+}
