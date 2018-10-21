@@ -58,6 +58,12 @@ README.md > This file
 
 I have tried to use camelCase everywhere because it will help to read it. It works for the JS and the PHP, but for the PHP I have tried to use PSR too (https://www.php-fig.org/psr/). Standards will help you to continue this app if you will.
 
+## The Data
+
+Data is stored in the database in order to have the same data if you change from one web browser to another (see my idea of local storage below) but the consistency of the data is very low. There's no primary key or test if something is duplicated so the data on the database (if it's a real app) will be a mesh.
+
+So it will be great if know the purpose of the data in order to, as I say, put a primary key in (don't know, for example the email address which will be "unique" for the data or for the name and the address -this will be better-) or create a more complex one with names (and surenames) separated from the other data (children, email) with some IDs (for example a user database with key name and surename chained with a userData table with all the data... I don't know... there's a lot of ways to do it depending on what must be the result). Whatever it's needed it's fundamental (on the first) create a structured way to store the data, because any changes on this will be "dangerous" if some adjust are needed after (data consistency, you know).
+
 ## The PHP
 
 The best method to intercommunicate between a front and the back is in something common, for example, JSON format.
@@ -73,6 +79,8 @@ Other way it's to create an object (not the connection object, but other object)
 Why I select to have separate and selfcontained files? Because at the begining with no complexity it's the best way to test (on my opinion) and to see what I have do. With separate files you can test if something works (or not).
 
 So, the way I used to test it it's to take a look at the JSON that it returns. It will say if it's all ok or not when something can be directly called.
+
+This is not a pure REST service or web service (and not a SOAP of course) but it can be upgraded to if needed.
 
 All the code is commented so you will know what it does on every point.
 
@@ -94,6 +102,10 @@ I knows this is a happy fart because it not needed but if someone likes to impro
 
 The last thing it's the use of an external module for pagination. You can create the logic of the pagination that will read the number of pages by dividing the number of items by the number of elements, create a variable that store the current page, modify the items you see putting from you need to you need on the list and compose something in the HTML that creates a simple pagination. But maybe it's good to know that I know how to use third party "things" (and it will save me from too much coding).
 
+Ah! this can be done in so many several ways (for example one only component, use a service for interchanging data or only for doing the http petitions -a trust storage-, or three components -one for the form, other for the table and the last for the search- or two with the form and the table been the same component...) that it can be really infinite. I have selected this way (and the use of the localStorage) to show the basics.
+
+Depending of the whole application different approach must be taken in order to help the integration with other components or whatever is needed. This approach it's easily upgradeable to a bigger form or to change some logic on the table thanks that I think the best is using what AngularJS had (the filters, the ordering way) and not to put the logic for doing it. If, for example, other filter is needed you can add the logic on the controller and put on the "view" (the html file) without no worries.
+
 All the code is commented so you will know what it does on every point.
 
 ## HTML
@@ -107,6 +119,8 @@ Using Bootstrap as a framework for the HTML helps to put the things in some orde
 ## CSS
 
 The best and fast way to do it, it's using SCSS. So there's a SCSS file and his "compiled" one in CSS. On that way you can see that I know SCSS too.
+
+And, using SCSS will help to integrate with a more large application thanks that you can import other CSS files and render/compile them together to see if there's errors or mistakes... and you can do some things dynamically by generating some mixins and functions :)
 
 # More questions
 
